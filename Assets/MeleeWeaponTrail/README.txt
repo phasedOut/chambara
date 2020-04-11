@@ -7,7 +7,7 @@ Attach the MeleeWeaponTrail script to the bone of your 3d model where the weapon
 
 Tip: Make sure to set your trail texture's wrap mode to clamp in the import settings.
 
-If you make improvements to the code, we encourage you to contribute to the Unity Developer Community Wiki Site! http://unifycommunity.com/wiki/index.php?title=MeleeWeaponTrail
+If you make improvements to the code, we encourage you to contrjjibute to the Unity Developer Community Wiki Site! http://unifycommunity.com/wiki/index.php?title=MeleeWeaponTrail
 
 
 Credits:

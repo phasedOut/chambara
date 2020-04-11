@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class playerMovement: MonoBehaviour
 {
-    public void endAnimation()
+    public void endAnimation(string message)
     {
-        isAnimating = false;
+      switch (message)
+      {
+        case "attack_ended":
+          attack_range.SetActive(false);
+          break;
+        default:
+          isAnimating = false;
+          break;
+      }
     }
 
     Animator anim;
@@ -19,16 +27,20 @@ public class playerMovement: MonoBehaviour
     private Vector3 endPos;
 
     private bool keyHit = false;
-    private float fraction = 0;
+    private float fraction = 0; 
+
+    GameObject attack_range;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
-        speed = 10.0f;
-        lerpSpeed = 5f;
-
+      anim = GetComponent<Animator>();
+      rb = GetComponent<Rigidbody>();
+      speed = 10.0f;
+      lerpSpeed = 5f;
+      //set attack_range to not active
+      attack_range = gameObject.transform.Find("attack_range").gameObject;
+      attack_range.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,6 +73,7 @@ public class playerMovement: MonoBehaviour
             {
                 anim.SetTrigger("swing");
                 isAnimating = true;
+                attack_range.SetActive(true);
             }
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
