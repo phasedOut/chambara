@@ -9,7 +9,7 @@ public class playerMovement: MonoBehaviour
       switch (message)
       {
         case "attack_ended":
-          attack_range.SetActive(false);
+          range_mesh.SetActive(false);
           break;
         default:
           isAnimating = false;
@@ -29,7 +29,9 @@ public class playerMovement: MonoBehaviour
     private bool keyHit = false;
     private float fraction = 0; 
 
+
     GameObject attack_range;
+    GameObject range_mesh;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +42,9 @@ public class playerMovement: MonoBehaviour
       lerpSpeed = 5f;
       //set attack_range to not active
       attack_range = gameObject.transform.Find("attack_range").gameObject;
-      attack_range.SetActive(false);
+      range_mesh = attack_range.transform.Find("range_mesh").gameObject;
+      Debug.Log(range_mesh);
+      range_mesh.SetActive(false);
     }
 
     // Update is called once per frame
@@ -69,12 +73,15 @@ public class playerMovement: MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (!isAnimating) 
-            {
-                anim.SetTrigger("swing");
-                isAnimating = true;
-                attack_range.SetActive(true);
-            }
+          if (!isAnimating) 
+          {
+            anim.SetTrigger("swing");
+            isAnimating = true;
+            range_mesh.SetActive(true);
+            range_mesh.transform.SetParent(null);
+            range_mesh.transform.localEulerAngles = gameObject.transform.localEulerAngles;
+            range_mesh.transform.position = attack_range.transform.position;
+          }
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {

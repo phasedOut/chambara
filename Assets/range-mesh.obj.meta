@@ -27,12 +27,7 @@ ModelImporter:
   - first:
       43: 4300000
     second: default
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: defaultMat
-    second: {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -97,7 +92,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 3
